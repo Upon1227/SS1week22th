@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/EndingScene.unity
     guid: 937a30e18a1e0c349a53fda3ff4ef546
   - enabled: 1
+    path: Assets/Scenes/MainSlot4.unity
+    guid: d3ea68135aedd48769b4488fc3bc1037
+  - enabled: 1
+    path: Assets/Scenes/MainSlot5.unity
+    guid: 63660931ea3a542029184bc4f23cc065
+  - enabled: 1
     path: Assets/naichilab/unity-simple-ranking/Scenes/Ranking.unity
     guid: 152244f5855414ac4a3874f14efa583c
   m_configObjects: {}

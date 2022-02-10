@@ -7,6 +7,6 @@ public class ToMainScene : MonoBehaviour
 {
     public void ChangeScene()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MainSlot");
     }
 }
