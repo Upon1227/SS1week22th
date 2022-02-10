@@ -19,9 +19,13 @@ public class GameManager4 : MonoBehaviour
     public Text ScoreText;
     public Text HABETUTEXT;
     public int slot;
+    creditManager creditManager;
+    bool isStart;
     // Start is called before the first frame update
     void Start()
     {
+        score = creditManager.credit;
+        creditManager = GameObject.Find("credit").GetComponent<creditManager>();
         anim[0].SetTrigger("Start");
         anim[1].SetTrigger("Start");
         anim[2].SetTrigger("Start");
@@ -30,38 +34,43 @@ public class GameManager4 : MonoBehaviour
 
     public void SlotStart()
     {
-        int butslot = Random.Range(1000, 10000);
-        int slotrandom = Random.Range(1, slotnum.Length + 1);
-        int slotnumm = slotnum[slotrandom];
-        int slot = Random.Range(1, 5);
-        if(slot < 3)
+        if(isStart == false)
         {
-            slott = butslot;
-        }
-        else
-        {
-            slott = slotnumm;
-        }
-        for(int i = 0;i < anim.Length; i++)
-        {
-            anim[i].SetTrigger("back");
-        }
+            score -= 100;
+            int butslot = Random.Range(1000, 10000);
+            int slotrandom = Random.Range(1, slotnum.Length + 1);
+            int slotnumm = slotnum[slotrandom];
+            int slot = Random.Range(1, 5);
+            if (slot < 3)
+            {
+                slott = butslot;
+            }
+            else
+            {
+                slott = slotnumm;
+            }
+            for (int i = 0; i < anim.Length; i++)
+            {
+                anim[i].SetTrigger("back");
+            }
 
-        //1259
-        sen = slott / 1000;
-        //結果2
-        int senamari = slott % 1000;
-        //結果250
-        hya = senamari / 100;
-        //2
-        int hyakuamari = senamari % 100;
-        zyu = hyakuamari / 10;
-        iti = zyu % 10;
-        //50
+            //1259
+            sen = slott / 1000;
+            //結果2
+            int senamari = slott % 1000;
+            //結果250
+            hya = senamari / 100;
+            //2
+            int hyakuamari = senamari % 100;
+            zyu = hyakuamari / 10;
+            iti = zyu % 10;
+            //50
 
-      
-        StartCoroutine(Reset());
-        HABETUTEXT.text = "";
+
+            StartCoroutine(Reset());
+            HABETUTEXT.text = "";
+            isStart = true;
+        }
 
     }
     float score;
@@ -77,6 +86,8 @@ public class GameManager4 : MonoBehaviour
             {
                 HABETUTEXT.text = "正解！";
                 score += slott;
+                creditManager.Plus(slott);
+
             }
             else
             {
@@ -93,6 +104,7 @@ public class GameManager4 : MonoBehaviour
             {
                 HABETUTEXT.text = "正解！";
                 score += slott * 0.5f;
+                creditManager.Plus(slott * 0.5f);
             }
         }
     }
@@ -106,13 +118,16 @@ public class GameManager4 : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    numrec[i].localPosition = new Vector3(-235, 202, 0);
+                    numrec[i].localPosition = new Vector3(-102, 202, 0);
                     break;
                 case 1:
-                    numrec[i].localPosition = new Vector3(0, 202, 0);
+                    numrec[i].localPosition = new Vector3(133, 202, 0);
                     break;
                 case 2:
-                    numrec[i].localPosition = new Vector3(227, 202, 0);
+                    numrec[i].localPosition = new Vector3(360, 202, 0);
+                    break;
+                case 3:
+                    numrec[i].localPosition = new Vector3(-345, 202, 0);
                     break;
             }
    
@@ -125,10 +140,14 @@ public class GameManager4 : MonoBehaviour
     }
     public void Stop()
     {
-        StartCoroutine(OpenSen());
-        StartCoroutine(OpenHyaku());
-        StartCoroutine(Openzyuu());
-        StartCoroutine(Openbyou());
+        if(isStart == true)
+        {
+            StartCoroutine(OpenSen());
+            StartCoroutine(OpenHyaku());
+            StartCoroutine(Openzyuu());
+            StartCoroutine(Openbyou());
+        }
+
     }
 
     IEnumerator OpenSen()
@@ -163,5 +182,6 @@ public class GameManager4 : MonoBehaviour
         Number3.gameObject.SetActive(true);
         kakushi[2].SetActive(true);
         anim[2].SetTrigger("Start");
+        isStart = false;
     }
 }

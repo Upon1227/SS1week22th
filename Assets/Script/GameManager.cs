@@ -18,9 +18,13 @@ public class GameManager : MonoBehaviour
     public Text ScoreText;
     public Text HABETUTEXT;
     public int slot;
+    bool isStart;
+    creditManager creditManager;
     // Start is called before the first frame update
     void Start()
     {
+        score = creditManager.credit;
+        creditManager = GameObject.Find("credit").GetComponent<creditManager>();
         anim[0].SetTrigger("Start");
         anim[1].SetTrigger("Start");
         anim[2].SetTrigger("Start");
@@ -29,29 +33,36 @@ public class GameManager : MonoBehaviour
 
     public void SlotStart()
     {
-        int butslot = Random.Range(100, 1000);
-        int slotrandom = Random.Range(1, slotnum.Length + 1);
-        int slotnumm = slotnum[slotrandom];
-        int slot = Random.Range(1, 5);
-        if(slot < 3)
+        if(isStart == false)
         {
-            slott = butslot;
+            score -= 100;
+            creditManager.minus(100);
+            int butslot = Random.Range(100, 1000);
+            int slotrandom = Random.Range(1, slotnum.Length + 1);
+            int slotnumm = slotnum[slotrandom];
+            int slot = Random.Range(1, 5);
+            if (slot < 3)
+            {
+                slott = butslot;
+            }
+            else
+            {
+                slott = slotnumm;
+            }
+            for (int i = 0; i < anim.Length; i++)
+            {
+                anim[i].SetTrigger("back");
+            }
+            hya = slott / 100;
+            int hyakuamari = slott % 100;
+            zyu = hyakuamari / 10;
+            iti = hyakuamari % 10;
+
+            StartCoroutine(Reset());
+            HABETUTEXT.text = "";
+            isStart = true;
         }
-        else
-        {
-            slott = slotnumm;
-        }
-        for(int i = 0;i < anim.Length; i++)
-        {
-            anim[i].SetTrigger("back");
-        }
-         hya = slott / 100;
-         int hyakuamari = slott % 100;
-         zyu = hyakuamari / 10;
-         iti = hyakuamari % 10;
-      
-        StartCoroutine(Reset());
-        HABETUTEXT.text = "";
+       
 
     }
     float score;
@@ -67,6 +78,7 @@ public class GameManager : MonoBehaviour
             {
                 HABETUTEXT.text = "正解！";
                 score += slott;
+                creditManager.Plus(slott);
             }
             else
             {
@@ -83,6 +95,7 @@ public class GameManager : MonoBehaviour
             {
                 HABETUTEXT.text = "正解！";
                 score += slott * 0.5f;
+                creditManager.Plus(slott * 0.5f);
             }
         }
     }
@@ -115,9 +128,13 @@ public class GameManager : MonoBehaviour
     }
     public void Stop()
     {
-        StartCoroutine(OpenHyaku());
-        StartCoroutine(Openzyuu());
-        StartCoroutine(Openbyou());
+        if(isStart == true)
+        {
+            StartCoroutine(OpenHyaku());
+            StartCoroutine(Openzyuu());
+            StartCoroutine(Openbyou());
+        }
+
     }
 
     IEnumerator OpenHyaku()
@@ -143,5 +160,6 @@ public class GameManager : MonoBehaviour
         Number3.gameObject.SetActive(true);
         kakushi[2].SetActive(true);
         anim[2].SetTrigger("Start");
+        isStart = false;
     }
 }
