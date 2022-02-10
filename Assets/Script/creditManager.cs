@@ -5,6 +5,7 @@ using UnityEngine;
 public class creditManager : MonoBehaviour
 {
     public static float credit;
+    public static float scenecount;
     // Start is called before the first frame update
 
     public static creditManager Instance
@@ -21,6 +22,15 @@ public class creditManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        scenecount++;
+        if(scenecount == 1)
+        {
+            credit += 1000;
+        }
     }
     public void Plus(float num)
     {
