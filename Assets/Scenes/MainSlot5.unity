@@ -2387,6 +2387,8 @@ MonoBehaviour:
   ScoreText: {fileID: 269507980}
   HABETUTEXT: {fileID: 936989886}
   slot: 0
+  isStart: 0
+  DebugMode: 1
 --- !u!4 &1639255369
 Transform:
   m_ObjectHideFlags: 0

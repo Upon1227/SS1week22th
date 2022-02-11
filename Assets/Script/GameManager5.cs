@@ -21,11 +21,17 @@ public class GameManager5 : MonoBehaviour
     public Text HABETUTEXT;
     public int slot;
     creditManager creditManager;
-    bool isStart;
+    public bool isStart;
+    public bool DebugMode;
     // Start is called before the first frame update
     void Start()
     {
         score = creditManager.credit;
+        if(DebugMode == true)
+        {
+            score = 100000;
+        }
+        creditManager = GameObject.Find("credit").GetComponent<creditManager>();
         anim[0].SetTrigger("Start");
         anim[1].SetTrigger("Start");
         anim[2].SetTrigger("Start");
@@ -36,8 +42,9 @@ public class GameManager5 : MonoBehaviour
 
     public void SlotStart()
     {
-        if(isStart == false)
+        if(isStart == false && score >= 10000)
         {
+            score -= 10000;
             int butslot = Random.Range(10000, 100000);
             int slotrandom = Random.Range(1, slotnum.Length + 1);
             int slotnumm = slotnum[slotrandom];

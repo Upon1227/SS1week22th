@@ -34,9 +34,9 @@ public class GameManager4 : MonoBehaviour
 
     public void SlotStart()
     {
-        if(isStart == false)
+        if(isStart == false && score >= 1000)
         {
-            score -= 100;
+            score -= 1000;
             int butslot = Random.Range(1000, 10000);
             int slotrandom = Random.Range(1, slotnum.Length + 1);
             int slotnumm = slotnum[slotrandom];
@@ -87,7 +87,6 @@ public class GameManager4 : MonoBehaviour
                 HABETUTEXT.text = "正解！";
                 score += slott;
                 creditManager.Plus(slott);
-
             }
             else
             {
