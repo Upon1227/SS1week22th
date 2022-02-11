@@ -21,6 +21,7 @@ public class GameManager4 : MonoBehaviour
     public int slot;
     creditManager creditManager;
     bool isStart;
+    bool isStop;
     public bool DebugMode;
     bool HABETUstandby;
     // Start is called before the first frame update
@@ -78,7 +79,7 @@ public class GameManager4 : MonoBehaviour
             StartCoroutine(Reset());
             HABETUTEXT.text = "";
             isStart = true;
-            HABETUstandby = true;
+            isStop = true;
         }
 
     }
@@ -123,6 +124,7 @@ public class GameManager4 : MonoBehaviour
                 }
             }
             HABETUstandby = false;
+            isStart = false;
         }
      
        
@@ -165,6 +167,7 @@ public class GameManager4 : MonoBehaviour
             StartCoroutine(OpenHyaku());
             StartCoroutine(Openzyuu());
             StartCoroutine(Openbyou());
+            isStop = false;
         }
 
     }
@@ -206,5 +209,6 @@ public class GameManager4 : MonoBehaviour
         anim[2].SetTrigger("Start");
         isStart = false;
         Debug.Log(iti);
+        HABETUstandby = true;
     }
 }

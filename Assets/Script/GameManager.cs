@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
     {
         if (HABETUstandby)
         {
-            if (isHABETU && HABETUstandby)
+            if (isHABETU)
             {
                 if (slott % 28 == 0)
                 {
