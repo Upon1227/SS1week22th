@@ -42,6 +42,7 @@ public class GameManager4 : MonoBehaviour
 
     public void SlotStart()
     {
+        SoundManager.Instance.PlaySE(SESoundData.SE.Hundle);
         if(isStart == false && score >= 1000)
         {
             slotGimickManager.HundleGimick();
