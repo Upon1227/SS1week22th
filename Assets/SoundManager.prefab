@@ -349,7 +349,7 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 6d04a94c105f24abd9859e02833a0d4b, type: 3}
     volume: 1
   - se: 1
-    audioClip: {fileID: 8300000, guid: 36080b1e9327045478016aef2102612b, type: 3}
+    audioClip: {fileID: 8300000, guid: b07ecc6c4f20e49b1ae84688ff7253af, type: 3}
     volume: 1
   - se: 2
     audioClip: {fileID: 8300000, guid: 36080b1e9327045478016aef2102612b, type: 3}
@@ -366,7 +366,7 @@ MonoBehaviour:
   - se: 5
     audioClip: {fileID: 8300000, guid: 79575711bd3864976865709c1780bf70, type: 3}
     volume: 1
-  - se: 5
+  - se: 6
     audioClip: {fileID: 8300000, guid: b5f3e2b3f91dd416f9547078b060973b, type: 3}
     volume: 1
   masterVolume: 1
