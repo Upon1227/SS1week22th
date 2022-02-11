@@ -416,6 +416,17 @@ RectTransform:
   m_AnchoredPosition: {x: -91, y: -3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &212987154 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1483084130553726723, guid: f63315ae3dd4b4051bb9c8f7aee538d6, type: 3}
+  m_PrefabInstance: {fileID: 60804650}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6bcd7e254e5445d0857132e18935346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &269507977
 GameObject:
   m_ObjectHideFlags: 0
@@ -2911,6 +2922,7 @@ MonoBehaviour:
   HABETUTEXT: {fileID: 936989886}
   slot: 0
   DebugMode: 0
+  slotGimickManager: {fileID: 212987154}
 --- !u!1001 &1758455712
 PrefabInstance:
   m_ObjectHideFlags: 0

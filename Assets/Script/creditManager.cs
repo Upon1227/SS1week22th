@@ -29,7 +29,7 @@ public class creditManager : MonoBehaviour
         scenecount++;
         if(scenecount == 1)
         {
-            credit += 1000;
+            credit = 1000;
         }
     }
     public void Plus(float num)
