@@ -463,6 +463,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1639255368}
+    - target: {fileID: 1483084131293981636, guid: f63315ae3dd4b4051bb9c8f7aee538d6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 77e81c064776747dbb578616ca78e8ef, type: 3}
     - target: {fileID: 1483084131446370078, guid: f63315ae3dd4b4051bb9c8f7aee538d6, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -758,7 +762,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.5372549, g: 0.5411765, b: 0.54901963, a: 0}
+  m_BackGroundColor: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

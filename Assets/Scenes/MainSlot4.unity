@@ -159,10 +159,10 @@ RectTransform:
   - {fileID: 1997350952}
   - {fileID: 1528274678}
   - {fileID: 1307210513}
-  - {fileID: 112671510}
-  - {fileID: 1085577472}
   - {fileID: 269507978}
   - {fileID: 936989888}
+  - {fileID: 112671510}
+  - {fileID: 1085577472}
   - {fileID: 1969592238}
   - {fileID: 515213319}
   m_Father: {fileID: 0}
@@ -245,6 +245,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1483084131293981636, guid: f63315ae3dd4b4051bb9c8f7aee538d6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 77e81c064776747dbb578616ca78e8ef, type: 3}
     - target: {fileID: 1483084131446370078, guid: f63315ae3dd4b4051bb9c8f7aee538d6, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -425,7 +429,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 32216760}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -840,7 +844,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1242,7 +1246,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 32216760}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
