@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
             HABETUTEXT.text = "";
             isStart = true;
             isStop = true;
-            HABETUstandby = true;
+            
         }
        
 
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
             }
             HABETUstandby = false;
             isStart = false;
-            isStop = true;
+            
         }
     }
 
@@ -123,13 +123,13 @@ public class GameManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    numrec[i].localPosition = new Vector3(-235, 202, 0);
+                    numrec[i].localPosition = new Vector3(-252, 202, 0);
                     break;
                 case 1:
-                    numrec[i].localPosition = new Vector3(0, 202, 0);
+                    numrec[i].localPosition = new Vector3(-12, 202, 0);
                     break;
                 case 2:
-                    numrec[i].localPosition = new Vector3(227, 202, 0);
+                    numrec[i].localPosition = new Vector3(220, 202, 0);
                     break;
             }
    
@@ -148,6 +148,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(Openzyuu());
             StartCoroutine(Openbyou());
             isStop = false;
+            Debug.Log("Stop");
         }
 
     }
@@ -175,6 +176,6 @@ public class GameManager : MonoBehaviour
         Number3.gameObject.SetActive(true);
         kakushi[2].SetActive(true);
         anim[2].SetTrigger("Start");
-       
+        HABETUstandby = true;
     }
 }
