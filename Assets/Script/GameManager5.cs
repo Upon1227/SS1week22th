@@ -47,6 +47,7 @@ public class GameManager5 : MonoBehaviour
     {
         if(isStart == false && score >= 10000)
         {
+            SoundManager.Instance.PlaySE(SESoundData.SE.Hundle);
             slotGimickManager.HundleGimick();
             score -= 10000;
             int butslot = Random.Range(10000, 100000);
@@ -112,10 +113,12 @@ public class GameManager5 : MonoBehaviour
                     score += slott;
                     creditManager.Plus(slott);
                     slotGimickManager.Flash28();
+                    SoundManager.Instance.PlaySE(SESoundData.SE.True);
                 }
                 else
                 {
                     HABETUTEXT.text = "不正解！";
+                    SoundManager.Instance.PlaySE(SESoundData.SE.False);
                 }
             }
             else
@@ -123,6 +126,7 @@ public class GameManager5 : MonoBehaviour
                 if (slott % 28 == 0)
                 {
                     HABETUTEXT.text = "不正解！";
+                    SoundManager.Instance.PlaySE(SESoundData.SE.False);
                 }
                 else
                 {
@@ -134,6 +138,7 @@ public class GameManager5 : MonoBehaviour
                     score += slott * 0.5f;
                     creditManager.Plus(slott * 0.5f);
                     slotGimickManager.Flash28();
+                    SoundManager.Instance.PlaySE(SESoundData.SE.True);
                 }
             }
             isStart = false;
@@ -179,6 +184,7 @@ public class GameManager5 : MonoBehaviour
     {
         if(isStop == true)
         {
+            SoundManager.Instance.PlaySE(SESoundData.SE.Click);
             StartCoroutine(OpenSen());
             StartCoroutine(OpenHyaku());
             StartCoroutine(Openzyuu());
@@ -197,6 +203,7 @@ public class GameManager5 : MonoBehaviour
         kakushi[4].SetActive(true);
         anim[4].SetTrigger("Start");
         Debug.Log(man);
+        SoundManager.Instance.PlaySE(SESoundData.SE.Stop);
     }
 
     IEnumerator OpenSen()
@@ -207,6 +214,7 @@ public class GameManager5 : MonoBehaviour
         kakushi[3].SetActive(true);
         anim[3].SetTrigger("Start");
         Debug.Log(sen);
+        SoundManager.Instance.PlaySE(SESoundData.SE.Stop);
     }
 
     IEnumerator OpenHyaku()
@@ -217,6 +225,7 @@ public class GameManager5 : MonoBehaviour
         kakushi[0].SetActive(true);
         anim[0].SetTrigger("Start");
         Debug.Log(hya);
+        SoundManager.Instance.PlaySE(SESoundData.SE.Stop);
     }
     IEnumerator Openzyuu()
     {
@@ -226,6 +235,7 @@ public class GameManager5 : MonoBehaviour
         kakushi[1].SetActive(true);
         anim[1].SetTrigger("Start");
         Debug.Log(zyu);
+        SoundManager.Instance.PlaySE(SESoundData.SE.Stop);
     }
     IEnumerator Openbyou()
     {
@@ -235,6 +245,7 @@ public class GameManager5 : MonoBehaviour
         kakushi[2].SetActive(true);
         anim[2].SetTrigger("Start");
         HABETUstandby = true;
+        SoundManager.Instance.PlaySE(SESoundData.SE.Stop);
         Debug.Log(iti);
     }
 }

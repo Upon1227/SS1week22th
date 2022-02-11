@@ -42,9 +42,10 @@ public class GameManager4 : MonoBehaviour
 
     public void SlotStart()
     {
-        SoundManager.Instance.PlaySE(SESoundData.SE.Hundle);
+        
         if(isStart == false && score >= 1000)
         {
+            SoundManager.Instance.PlaySE(SESoundData.SE.Hundle);
             slotGimickManager.HundleGimick();
             score -= 1000;
             int butslot = Random.Range(1000, 10000);
@@ -104,10 +105,13 @@ public class GameManager4 : MonoBehaviour
                     score += slott;
                     creditManager.Plus(slott);
                     slotGimickManager.Flash28();
+                    SoundManager.Instance.PlaySE(SESoundData.SE.True);
+
                 }
                 else
                 {
                     HABETUTEXT.text = "不正解！";
+                    SoundManager.Instance.PlaySE(SESoundData.SE.False);
                 }
             }
             else
@@ -115,10 +119,12 @@ public class GameManager4 : MonoBehaviour
                 if (slott % 28 == 0)
                 {
                     HABETUTEXT.text = "不正解！";
+                    SoundManager.Instance.PlaySE(SESoundData.SE.False);
                 }
                 else
                 {
                     HABETUTEXT.text = "正解！";
+                    SoundManager.Instance.PlaySE(SESoundData.SE.True);
                     if (slott % 2 == 1)
                     {
                         slott += 1;
@@ -168,6 +174,7 @@ public class GameManager4 : MonoBehaviour
     {
         if(isStart == true)
         {
+            SoundManager.Instance.PlaySE(SESoundData.SE.Click);
             StartCoroutine(OpenSen());
             StartCoroutine(OpenHyaku());
             StartCoroutine(Openzyuu());
@@ -185,6 +192,7 @@ public class GameManager4 : MonoBehaviour
         kakushi[3].SetActive(true);
         anim[3].SetTrigger("Start");
         Debug.Log(sen);
+        SoundManager.Instance.PlaySE(SESoundData.SE.Stop);
     }
 
     IEnumerator OpenHyaku()
@@ -195,6 +203,7 @@ public class GameManager4 : MonoBehaviour
         kakushi[0].SetActive(true);
         anim[0].SetTrigger("Start");
         Debug.Log(hya);
+        SoundManager.Instance.PlaySE(SESoundData.SE.Stop);
     }
     IEnumerator Openzyuu()
     {
@@ -204,6 +213,7 @@ public class GameManager4 : MonoBehaviour
         kakushi[1].SetActive(true);
         anim[1].SetTrigger("Start");
         Debug.Log(zyu);
+        SoundManager.Instance.PlaySE(SESoundData.SE.Stop);
     }
     IEnumerator Openbyou()
     {
@@ -215,5 +225,6 @@ public class GameManager4 : MonoBehaviour
         isStart = false;
         Debug.Log(iti);
         HABETUstandby = true;
+        SoundManager.Instance.PlaySE(SESoundData.SE.Stop);
     }
 }
