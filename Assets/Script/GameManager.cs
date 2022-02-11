@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public Text HABETUTEXT;
     public int slot;
     bool isStart;
+    bool isStop;
     creditManager creditManager;
     bool HABETUstandby;
     // Start is called before the first frame update
@@ -39,8 +40,8 @@ public class GameManager : MonoBehaviour
             score -= 100;
             creditManager.minus(100);
             int butslot = Random.Range(100, 1000);
-            int slotrandom = Random.Range(1, slotnum.Length + 1);
-            int slotnumm = slotnum[slotrandom];
+            int slotrandom = Random.Range(4, 36);
+            int slotnumm = 28 * slotrandom;
             int slot = Random.Range(1, 5);
             if (slot < 3)
             {
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(Reset());
             HABETUTEXT.text = "";
             isStart = true;
+            isStop = true;
             HABETUstandby = true;
         }
        
@@ -107,6 +109,8 @@ public class GameManager : MonoBehaviour
                 }
             }
             HABETUstandby = false;
+            isStart = false;
+            isStop = true;
         }
     }
 
@@ -138,11 +142,12 @@ public class GameManager : MonoBehaviour
     }
     public void Stop()
     {
-        if(isStart == true)
+        if(isStop == true)
         {
             StartCoroutine(OpenHyaku());
             StartCoroutine(Openzyuu());
             StartCoroutine(Openbyou());
+            isStop = false;
         }
 
     }
@@ -170,6 +175,6 @@ public class GameManager : MonoBehaviour
         Number3.gameObject.SetActive(true);
         kakushi[2].SetActive(true);
         anim[2].SetTrigger("Start");
-        isStart = false;
+       
     }
 }

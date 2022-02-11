@@ -44,8 +44,8 @@ public class GameManager4 : MonoBehaviour
         {
             score -= 1000;
             int butslot = Random.Range(1000, 10000);
-            int slotrandom = Random.Range(1, slotnum.Length + 1);
-            int slotnumm = slotnum[slotrandom];
+            int slotrandom = Random.Range(36,358);
+            int slotnumm = 28 * slotrandom;
             int slot = Random.Range(1, 5);
             if (slot < 3)
             {
