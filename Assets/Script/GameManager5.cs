@@ -147,19 +147,19 @@ public class GameManager5 : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    numrec[i].localPosition = new Vector3(485, 202, 0);
+                    numrec[i].localPosition = new Vector3(401, 282, 0);
                     break;
                 case 1:
-                    numrec[i].localPosition = new Vector3(258, 202, 0);
+                    numrec[i].localPosition = new Vector3(202, 282, 0);
                     break;
                 case 2:
-                    numrec[i].localPosition = new Vector3(23, 202, 0);
+                    numrec[i].localPosition = new Vector3(1, 282, 0);
                     break;
                 case 3:
-                    numrec[i].localPosition = new Vector3(-220, 202, 0);
+                    numrec[i].localPosition = new Vector3(-194, 282, 0);
                     break;
                 case 4:
-                    numrec[i].localPosition = new Vector3(-469, 202, 0);
+                    numrec[i].localPosition = new Vector3(-392, 282, 0);
                     break;
             }
    
