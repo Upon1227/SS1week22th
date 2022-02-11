@@ -36,10 +36,11 @@ public class GameManager : MonoBehaviour
 
     public void SlotStart()
     {
-        SoundManager.Instance.PlaySE(SESoundData.SE.Hundle);
-        SoundManager.Instance.PlayReelSE(BGMSoundData.BGM.Reel);
+        
         if (isStart == false && score >= 100)
         {
+            SoundManager.Instance.PlaySE(SESoundData.SE.Hundle);
+            //SoundManager.Instance.PlayReelSE(BGMSoundData.BGM.Reel);
             slotGimickManager.HundleGimick();
             score -= 100;
             creditManager.minus(100);
@@ -172,6 +173,8 @@ public class GameManager : MonoBehaviour
         Number1.gameObject.SetActive(true);
         kakushi[0].SetActive(true);
         anim[0].SetTrigger("Start");
+        SoundManager.Instance.PlaySE(SESoundData.SE.Stop);
+
     }
     IEnumerator Openzyuu()
     {
@@ -180,6 +183,7 @@ public class GameManager : MonoBehaviour
         Number2.gameObject.SetActive(true);
         kakushi[1].SetActive(true);
         anim[1].SetTrigger("Start");
+        SoundManager.Instance.PlaySE(SESoundData.SE.Stop);
     }
     IEnumerator Openbyou()
     {
@@ -188,7 +192,7 @@ public class GameManager : MonoBehaviour
         Number3.gameObject.SetActive(true);
         kakushi[2].SetActive(true);
         anim[2].SetTrigger("Start");
-        SoundManager.Instance.StopReel();
+        SoundManager.Instance.PlaySE(SESoundData.SE.Stop);
         HABETUstandby = true;
     }
 }
