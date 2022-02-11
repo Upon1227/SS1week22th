@@ -24,6 +24,7 @@ public class GameManager5 : MonoBehaviour
     public bool isStart;
     public bool DebugMode;
     bool HABETUstandby;
+    bool isStop;
     // Start is called before the first frame update
     void Start()
     {
@@ -86,7 +87,7 @@ public class GameManager5 : MonoBehaviour
             StartCoroutine(Reset());
             HABETUTEXT.text = "";
             isStart = true;
-       
+            isStop = true;
         }
 
         
@@ -172,13 +173,14 @@ public class GameManager5 : MonoBehaviour
     }
     public void Stop()
     {
-        if(isStart == true)
+        if(isStop == true)
         {
             StartCoroutine(OpenSen());
             StartCoroutine(OpenHyaku());
             StartCoroutine(Openzyuu());
             StartCoroutine(Openbyou());
             StartCoroutine(OpenMan());
+            isStop = false;
         }
        
     }
