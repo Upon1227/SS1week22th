@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class MainClock : MonoBehaviour
 {
-    public float Timer;
-    public int Clock;
+    public static float Timer = 0.0F;
+    public static int Clock = 9;
     public Text ClockText;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Timer = 0.0F;
-        Clock = 9;
+        DontDestroyOnLoad(this);
+
     }
 
     // Update is called once per frame

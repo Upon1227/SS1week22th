@@ -103,6 +103,10 @@ public class GameManager4 : MonoBehaviour
             else
             {
                 HABETUTEXT.text = "正解！";
+                if (slott % 2 == 1)
+                {
+                    slott += 1;
+                }
                 score += slott * 0.5f;
                 creditManager.Plus(slott * 0.5f);
             }

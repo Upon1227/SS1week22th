@@ -20,10 +20,12 @@ public class GameManager5 : MonoBehaviour
     public Text ScoreText;
     public Text HABETUTEXT;
     public int slot;
+    creditManager creditManager;
     bool isStart;
     // Start is called before the first frame update
     void Start()
     {
+        score = creditManager.credit;
         anim[0].SetTrigger("Start");
         anim[1].SetTrigger("Start");
         anim[2].SetTrigger("Start");
@@ -93,6 +95,7 @@ public class GameManager5 : MonoBehaviour
             {
                 HABETUTEXT.text = "正解！";
                 score += slott;
+                creditManager.Plus(slott);
             }
             else
             {
@@ -108,7 +111,12 @@ public class GameManager5 : MonoBehaviour
             else
             {
                 HABETUTEXT.text = "正解！";
+                if (slott % 2 == 1)
+                {
+                    slott += 1;
+                }
                 score += slott * 0.5f;
+                creditManager.Plus(slott * 0.5f);
             }
         }
         isStart = false;
