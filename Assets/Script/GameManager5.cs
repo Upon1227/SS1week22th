@@ -86,7 +86,7 @@ public class GameManager5 : MonoBehaviour
             StartCoroutine(Reset());
             HABETUTEXT.text = "";
             isStart = true;
-            HABETUstandby = true;
+       
         }
 
         
@@ -168,6 +168,7 @@ public class GameManager5 : MonoBehaviour
         {
             kakushi[i].SetActive(false);
         }
+        Debug.Log("リセット");
     }
     public void Stop()
     {
@@ -227,7 +228,7 @@ public class GameManager5 : MonoBehaviour
         Number1.gameObject.SetActive(true);
         kakushi[2].SetActive(true);
         anim[2].SetTrigger("Start");
-
+        HABETUstandby = true;
         Debug.Log(iti);
     }
 }
