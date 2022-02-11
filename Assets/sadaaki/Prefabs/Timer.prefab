@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8782168357299294219}
   m_Layer: 0
-  m_Name: InText
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
