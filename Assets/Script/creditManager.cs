@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class creditManager : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class creditManager : MonoBehaviour
     private void Start()
     {
         scenecount++;
-        if(scenecount == 1)
+        if(SceneManager.GetActiveScene().name == "TitleScene")
         {
             credit = 1000;
         }
