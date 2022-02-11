@@ -7,6 +7,7 @@ public class ToMainScene : MonoBehaviour
 {
     public void ChangeScene()
     {
-        SceneManager.LoadScene("MainSlot");
+        FadeManager.Instance.LoadScene("MainSlot", 1.0f);
+
     }
 }
