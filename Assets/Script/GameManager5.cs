@@ -114,6 +114,7 @@ public class GameManager5 : MonoBehaviour
                     creditManager.Plus(slott);
                     slotGimickManager.Flash28();
                     SoundManager.Instance.PlaySE(SESoundData.SE.True);
+                    slotGimickManager.TurnOnBounusLump();
                 }
                 else
                 {
@@ -139,6 +140,7 @@ public class GameManager5 : MonoBehaviour
                     creditManager.Plus(slott * 0.5f);
                     slotGimickManager.Flash28();
                     SoundManager.Instance.PlaySE(SESoundData.SE.True);
+                    slotGimickManager.TurnOnBounusLump();
                 }
             }
             isStart = false;

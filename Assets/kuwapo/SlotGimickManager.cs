@@ -79,6 +79,7 @@ public class SlotGimickManager : MonoBehaviour
     public void TurnOnBounusLump()
     {
         bonusText.SetActive(true);
+        Invoke("TurnOffBonusLump", 2f);
     }
     //Bounusのテキストを消灯
     public void TurnOffBonusLump()

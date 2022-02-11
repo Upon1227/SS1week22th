@@ -106,6 +106,7 @@ public class GameManager4 : MonoBehaviour
                     creditManager.Plus(slott);
                     slotGimickManager.Flash28();
                     SoundManager.Instance.PlaySE(SESoundData.SE.True);
+                    slotGimickManager.TurnOnBounusLump();
 
                 }
                 else
@@ -124,6 +125,7 @@ public class GameManager4 : MonoBehaviour
                 else
                 {
                     HABETUTEXT.text = "正解！";
+                    slotGimickManager.TurnOnBounusLump();
                     SoundManager.Instance.PlaySE(SESoundData.SE.True);
                     if (slott % 2 == 1)
                     {

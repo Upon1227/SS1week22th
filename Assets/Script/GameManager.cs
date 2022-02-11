@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
                     score += slott;
                     creditManager.Plus(slott);
                     slotGimickManager.Flash28();
+                    slotGimickManager.TurnOnBounusLump();
                     SoundManager.Instance.PlaySE(SESoundData.SE.True);
                 }
                 else
@@ -118,6 +119,7 @@ public class GameManager : MonoBehaviour
                     creditManager.Plus(slott * 0.5f);
                     slotGimickManager.Flash28();
                     SoundManager.Instance.PlaySE(SESoundData.SE.True);
+                    slotGimickManager.TurnOnBounusLump();
                 }
             }
             HABETUstandby = false;
