@@ -30,6 +30,10 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void StopReel()
+    {
+        reelAudioSource.Stop();
+    }
 
     public void PlayBGM(BGMSoundData.BGM bgm)
     {
@@ -93,6 +97,8 @@ public class SESoundData
     [Range(0, 1)]
     public float volume = 1;
 }
+
+
 
 
 

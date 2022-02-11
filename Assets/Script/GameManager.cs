@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public void SlotStart()
     {
         SoundManager.Instance.PlaySE(SESoundData.SE.Hundle);
+        SoundManager.Instance.PlayReelSE(BGMSoundData.BGM.Reel);
         if (isStart == false && score >= 100)
         {
             slotGimickManager.HundleGimick();
@@ -89,10 +90,12 @@ public class GameManager : MonoBehaviour
                     score += slott;
                     creditManager.Plus(slott);
                     slotGimickManager.Flash28();
+                    SoundManager.Instance.PlaySE(SESoundData.SE.True);
                 }
                 else
                 {
                     HABETUTEXT.text = "不正解！";
+                    SoundManager.Instance.PlaySE(SESoundData.SE.False);
                 }
             }
             else
@@ -100,6 +103,8 @@ public class GameManager : MonoBehaviour
                 if (slott % 28 == 0)
                 {
                     HABETUTEXT.text = "不正解！";
+                    SoundManager.Instance.PlaySE(SESoundData.SE.False);
+
                 }
                 else
                 {
@@ -111,6 +116,7 @@ public class GameManager : MonoBehaviour
                     score += slott * 0.5f;
                     creditManager.Plus(slott * 0.5f);
                     slotGimickManager.Flash28();
+                    SoundManager.Instance.PlaySE(SESoundData.SE.True);
                 }
             }
             HABETUstandby = false;
@@ -149,6 +155,7 @@ public class GameManager : MonoBehaviour
     {
         if(isStop == true)
         {
+            SoundManager.Instance.PlaySE(SESoundData.SE.Click);
             StartCoroutine(OpenHyaku());
             StartCoroutine(Openzyuu());
             StartCoroutine(Openbyou());
@@ -181,6 +188,7 @@ public class GameManager : MonoBehaviour
         Number3.gameObject.SetActive(true);
         kakushi[2].SetActive(true);
         anim[2].SetTrigger("Start");
+        SoundManager.Instance.StopReel();
         HABETUstandby = true;
     }
 }
