@@ -23,6 +23,7 @@ public class GameManager5 : MonoBehaviour
     creditManager creditManager;
     public bool isStart;
     public bool DebugMode;
+    bool HABETUstandby;
     // Start is called before the first frame update
     void Start()
     {
@@ -85,7 +86,9 @@ public class GameManager5 : MonoBehaviour
             StartCoroutine(Reset());
             HABETUTEXT.text = "";
             isStart = true;
+            HABETUstandby = true;
         }
+
         
 
     }
@@ -96,37 +99,42 @@ public class GameManager5 : MonoBehaviour
     }
     public void HANBETI(bool isHABETU)
     {
-        if (isHABETU)
+        if (HABETUstandby)
         {
-            if(slott % 28 == 0)
+            if (isHABETU)
             {
-                HABETUTEXT.text = "正解！";
-                score += slott;
-                creditManager.Plus(slott);
-            }
-            else
-            {
-                HABETUTEXT.text = "不正解！";
-            }
-        }
-        else
-        {
-            if (slott % 28 == 0)
-            {
-                HABETUTEXT.text = "不正解！";
-            }
-            else
-            {
-                HABETUTEXT.text = "正解！";
-                if (slott % 2 == 1)
+                if (slott % 28 == 0)
                 {
-                    slott += 1;
+                    HABETUTEXT.text = "正解！";
+                    score += slott;
+                    creditManager.Plus(slott);
                 }
-                score += slott * 0.5f;
-                creditManager.Plus(slott * 0.5f);
+                else
+                {
+                    HABETUTEXT.text = "不正解！";
+                }
             }
+            else
+            {
+                if (slott % 28 == 0)
+                {
+                    HABETUTEXT.text = "不正解！";
+                }
+                else
+                {
+                    HABETUTEXT.text = "正解！";
+                    if (slott % 2 == 1)
+                    {
+                        slott += 1;
+                    }
+                    score += slott * 0.5f;
+                    creditManager.Plus(slott * 0.5f);
+                }
+            }
+            isStart = false;
+            HABETUstandby = false;
         }
-        isStart = false;
+    
     }
 
     

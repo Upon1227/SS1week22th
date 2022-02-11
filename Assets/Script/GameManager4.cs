@@ -21,11 +21,17 @@ public class GameManager4 : MonoBehaviour
     public int slot;
     creditManager creditManager;
     bool isStart;
+    public bool DebugMode;
+    bool HABETUstandby;
     // Start is called before the first frame update
     void Start()
     {
         score = creditManager.credit;
         creditManager = GameObject.Find("credit").GetComponent<creditManager>();
+        if (DebugMode == true)
+        {
+            score = 100000;
+        }
         anim[0].SetTrigger("Start");
         anim[1].SetTrigger("Start");
         anim[2].SetTrigger("Start");
@@ -54,22 +60,25 @@ public class GameManager4 : MonoBehaviour
                 anim[i].SetTrigger("back");
             }
 
-            //1259
+            //1260
             sen = slott / 1000;
-            //結果2
+            //結果1
             int senamari = slott % 1000;
-            //結果250
+            //1260 & 1000 = 260
             hya = senamari / 100;
-            //2
+            //260 / 100 = 2
             int hyakuamari = senamari % 100;
+            //260 % 100 = 60
             zyu = hyakuamari / 10;
-            iti = zyu % 10;
-            //50
+            //60 / 10 = 6
+            iti = hyakuamari %  10;
+            //
 
 
             StartCoroutine(Reset());
             HABETUTEXT.text = "";
             isStart = true;
+            HABETUstandby = true;
         }
 
     }
@@ -77,39 +86,46 @@ public class GameManager4 : MonoBehaviour
     private void Update()
     {
         ScoreText.text = score.ToString();
+        Debug.Log(slott);
     }
     public void HANBETI(bool isHABETU)
     {
-        if (isHABETU)
+        if (HABETUstandby)
         {
-            if(slott % 28 == 0)
+            if (isHABETU)
             {
-                HABETUTEXT.text = "正解！";
-                score += slott;
-                creditManager.Plus(slott);
-            }
-            else
-            {
-                HABETUTEXT.text = "不正解！";
-            }
-        }
-        else
-        {
-            if (slott % 28 == 0)
-            {
-                HABETUTEXT.text = "不正解！";
-            }
-            else
-            {
-                HABETUTEXT.text = "正解！";
-                if (slott % 2 == 1)
+                if (slott % 28 == 0)
                 {
-                    slott += 1;
+                    HABETUTEXT.text = "正解！";
+                    score += slott;
+                    creditManager.Plus(slott);
                 }
-                score += slott * 0.5f;
-                creditManager.Plus(slott * 0.5f);
+                else
+                {
+                    HABETUTEXT.text = "不正解！";
+                }
             }
+            else
+            {
+                if (slott % 28 == 0)
+                {
+                    HABETUTEXT.text = "不正解！";
+                }
+                else
+                {
+                    HABETUTEXT.text = "正解！";
+                    if (slott % 2 == 1)
+                    {
+                        slott += 1;
+                    }
+                    score += slott * 0.5f;
+                    creditManager.Plus(slott * 0.5f);
+                }
+            }
+            HABETUstandby = false;
         }
+     
+       
     }
 
     
@@ -160,6 +176,7 @@ public class GameManager4 : MonoBehaviour
         Number4.gameObject.SetActive(true);
         kakushi[3].SetActive(true);
         anim[3].SetTrigger("Start");
+        Debug.Log(sen);
     }
 
     IEnumerator OpenHyaku()
@@ -169,6 +186,7 @@ public class GameManager4 : MonoBehaviour
         Number1.gameObject.SetActive(true);
         kakushi[0].SetActive(true);
         anim[0].SetTrigger("Start");
+        Debug.Log(hya);
     }
     IEnumerator Openzyuu()
     {
@@ -177,6 +195,7 @@ public class GameManager4 : MonoBehaviour
         Number2.gameObject.SetActive(true);
         kakushi[1].SetActive(true);
         anim[1].SetTrigger("Start");
+        Debug.Log(zyu);
     }
     IEnumerator Openbyou()
     {
@@ -186,5 +205,6 @@ public class GameManager4 : MonoBehaviour
         kakushi[2].SetActive(true);
         anim[2].SetTrigger("Start");
         isStart = false;
+        Debug.Log(iti);
     }
 }
