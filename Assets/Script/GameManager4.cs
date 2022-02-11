@@ -24,6 +24,7 @@ public class GameManager4 : MonoBehaviour
     bool isStop;
     public bool DebugMode;
     bool HABETUstandby;
+    public SlotGimickManager slotGimickManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +44,7 @@ public class GameManager4 : MonoBehaviour
     {
         if(isStart == false && score >= 1000)
         {
+            slotGimickManager.HundleGimick();
             score -= 1000;
             int butslot = Random.Range(1000, 10000);
             int slotrandom = Random.Range(36,358);
@@ -100,6 +102,7 @@ public class GameManager4 : MonoBehaviour
                     HABETUTEXT.text = "正解！";
                     score += slott;
                     creditManager.Plus(slott);
+                    slotGimickManager.Flash28();
                 }
                 else
                 {
@@ -121,6 +124,7 @@ public class GameManager4 : MonoBehaviour
                     }
                     score += slott * 0.5f;
                     creditManager.Plus(slott * 0.5f);
+                    slotGimickManager.Flash28();
                 }
             }
             HABETUstandby = false;
